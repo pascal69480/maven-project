@@ -22,8 +22,7 @@ pipeline {
                 echo 'Deploying to production'
             }   
          }
-        
-            }
+       
         }
     post {
             always {
