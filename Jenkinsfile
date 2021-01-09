@@ -22,11 +22,14 @@ pipeline {
                 echo 'Deploying to production'
             }   
          }
-        post {
+        
+            }
+        }
+    }
+    post {
             always {
                 echo "c'est le ${currentBuild.fullDisplayName}"
             }
-        }
     }
     
 }
