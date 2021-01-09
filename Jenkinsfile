@@ -20,7 +20,13 @@ pipeline {
          stage('Deploy to prod') {
             steps {
                 echo 'Deploying to production'
+            }   
+         }
+        post {
+            always {
+                echo "c'est le ${currentBuild.fullDisplayName}"
             }
         }
     }
+    
 }
