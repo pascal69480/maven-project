@@ -25,7 +25,6 @@ pipeline {
         
             }
         }
-    }
     post {
             always {
                 echo "c'est le ${currentBuild.fullDisplayName}"
