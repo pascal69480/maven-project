@@ -19,7 +19,7 @@ pipeline {
                 success {
                     echo 'Now Archiving...'
                 }
-                failure { echo 'error on the build steps !!!'}
+            
             }
         }
     }
