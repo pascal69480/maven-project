@@ -17,6 +17,7 @@ pipeline {
             post {
             success {
                 echo 'Code deployed to Production.'
+                echo "active user is now ${params.USERID}"
                 }
         }
         
