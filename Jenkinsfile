@@ -16,8 +16,9 @@ pipeline {
             }
         }
         post {
-            success {echo 'Code deployed to Production.'}
-
+            success {
+                echo 'Code deployed to Production.'
+                }
             
         }
         
