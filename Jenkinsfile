@@ -14,11 +14,12 @@ pipeline {
                 input message:'Approve PRODUCTION Deployment?'
                 sh 'echo deploy to tomcat server'
             }
-        }
-        post {
+            post {
             success {
                 echo 'Code deployed to Production.'
                 }
+        }
+        
             
         }
         
