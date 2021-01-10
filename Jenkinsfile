@@ -5,13 +5,14 @@ pipeline {
              steps {  
     	        script {
                 def resp = input message: '<message>', 
-                    parameters: [string(defaultValue: '',
+                    parameters: [string(defaultValue: 'hello',
                     description: 'Enter response 1',
                     name: 'RESPONSE1'), string(defaultValue: '',
                     description: 'Enter response 2', name: 'RESPONSE2')]
                     echo "${resp.RESPONSE1}"
+                    echo "${resp.RESPONSE2}"
         }
-        echo "${resp.RESPONSE2}"
+        
     }
 
     }
