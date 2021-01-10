@@ -10,7 +10,7 @@ pipeline {
                     echo 'Now Archiving...'
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
-                failure { echo 'error on thenbuild steps'}
+                failure { echo 'error on the build steps !!!'}
             }
         }
     }
