@@ -12,12 +12,12 @@ pipeline {
         stage('deploy'){
             steps {
                 input message:'Approve PRODUCTION Deployment?'
-                //sh 'echo deploy to tomcat server'
+                sh 'echo deploy to tomcat server'
             }
         }
             post {
                 success {
-                    echo 'Now Archiving...'
+                    sh 'echo Now Archiving...'
                 }
             
             }
