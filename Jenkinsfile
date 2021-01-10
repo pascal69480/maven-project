@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh 'echo build stage'
             }
+        }    
         stage('deploy')
             steps {
                 input message:'Approve PRODUCTION Deployment?'
@@ -21,4 +22,3 @@ pipeline {
             }
         }
     }
-}
