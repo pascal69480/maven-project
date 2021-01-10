@@ -11,7 +11,6 @@ pipeline {
             post {
                 success {
                     echo 'Now Archiving...'
-                    echo 'archive artifact'
                 }
                 failure { echo 'error on the build steps !!!'}
             }
