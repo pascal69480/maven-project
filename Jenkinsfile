@@ -15,6 +15,11 @@ pipeline {
                 sh 'echo deploy to tomcat server'
             }
         }
+        post {
+            success {echo 'Code deployed to Production.'}
+
             
         }
-    }
+        
+        }
+}
