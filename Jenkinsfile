@@ -5,12 +5,12 @@ pipeline {
     stages{
         stage('Build'){
             steps {
-                sh 'mvn validate clean package'
+                sh 'echo build stage'
             }
             post {
                 success {
                     echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                    echo 'archive artifact'
                 }
                 failure { echo 'error on the build steps !!!'}
             }
