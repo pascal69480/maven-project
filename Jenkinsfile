@@ -1,7 +1,7 @@
 pipeline {
     agent any
     triggers {
-         pollSCM('* * * * *')
+         pollSCM('3 * * * *')
     }
     stages{
         stage('Build'){
@@ -9,11 +9,12 @@ pipeline {
                 sh 'echo build stage'
             }
         }    
-        stage('deploy')
+        stage('deploy'){
             steps {
                 input message:'Approve PRODUCTION Deployment?'
                 sh 'echo deploy to tomcat server'
             }
+        }
             post {
                 success {
                     echo 'Now Archiving...'
