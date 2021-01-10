@@ -11,7 +11,7 @@ pipeline {
         }    
         stage('deploy'){
             steps {
-                input message:'Approve PRODUCTION Deployment?', ok: 'Yes', submitter: 'issam'
+                input message:'Approve PRODUCTION Deployment?', ok: 'Yes', submitter: 'admin'
                 sh 'echo deploy to tomcat server'
             }
             post {
