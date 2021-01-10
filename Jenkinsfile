@@ -15,11 +15,6 @@ pipeline {
                 sh 'echo deploy to tomcat server'
             }
         }
-            post {
-                success {
-                    sh 'echo Now Archiving...'
-                }
             
-            }
         }
     }
