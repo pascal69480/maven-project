@@ -3,7 +3,13 @@ pipeline {
     stages{
         stage ('build image') {
             steps {
-                sh docker build -t 1.0 .
+                sh 'docker image build -t app:1.0 .'
+            }
+            post{
+                success {
+                    echo 'build image is OK'
+                }
+
             }
         }
             
