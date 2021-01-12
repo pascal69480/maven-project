@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages{
+        stage ('build image') {
+            steps {
+                sh docker build -t 1.0 .
+            }
+        }
+            
+    }
+}
