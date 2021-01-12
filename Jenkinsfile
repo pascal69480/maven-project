@@ -1,20 +1,32 @@
 pipeline {
     agent any
-    stages {
-        stage ('Input') {
-             steps {  
-    	        script {
-                def resp = input message: '<message>', 
-                    parameters: [string(defaultValue: 'hello',
-                    description: 'Enter response 1',
-                    name: 'RESPONSE1'), string(defaultValue: '',
-                    description: 'Enter response 2', name: 'RESPONSE2')]
-                    echo "${resp.RESPONSE1}"
-                    echo "${resp.RESPONSE2}"
+    //triggers {
+        // pollSCM('3 * * * *')
+   // }
+    stages{
+        stage('Build'){
+            steps {
+                // ajout d'une liste de choix
+                def choice = input message: 'choisir dans la liste',
+                 parameters: [choice(choices:b"choix1\nchoix2\nchoix3\n",
+                 description: 'choose an option', name: 'Options')]
+                sh 'echo build stage'
+            }
+        }    
+        stage('deploy'){
+            steps {
+                input message:'Approve PRODUCTION Deployment?', ok: 'Yes', submitter: 'admin'
+                sh 'echo deploy to tomcat server'
+            }
+            post {
+            success {
+                echo 'Code deployed to Production.'
+                echo "active user is now ${params.USERID}"
+                }
         }
         
-    }
-
-    }
-}
+            
+        }
+        
+        }
 }
