@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('listVals') {
             steps {
-                echo user role = ${params.userRole}
+                echo "user role" = ${params.userRole}
                 post {
                     success {
                         echo " User identified"
