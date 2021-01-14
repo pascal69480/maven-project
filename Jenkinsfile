@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('listVals') {
             steps {
-                echo "user role = ${params.useRole}"
+                echo "user role = ${prams.useRole}"
                 
             }
             post{
