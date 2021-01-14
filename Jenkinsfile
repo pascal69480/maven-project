@@ -4,7 +4,7 @@ pipeline {
             string(defaultValue: "Maintainer", description: 'Enter User Role')
     }
     stages {
-        stage('listVals')
+        stage('listVals') {
             steps {
                 echo "user's role = ${params.userRole}"
                 post {
@@ -19,6 +19,9 @@ pipeline {
                     
                 }
             }
+
+        }
+            
 
         }
 
