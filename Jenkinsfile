@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // ajout d'une liste de choix
                 def choice = input message: 'choisir dans la liste',
-                 parameters: [choice(choices:b"choix1\nchoix2\nchoix3\n",
+                 parameters: [choice(choices:"choix1\nchoix2\nchoix3\n",
                  description: 'choose an option', name: 'Options')]
                 sh 'echo build stage'
             }
