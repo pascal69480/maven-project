@@ -1,32 +1,26 @@
 pipeline {
     agent any
-    //triggers {
-        // pollSCM('3 * * * *')
-   // }
-    stages{
-        stage('Build'){
+    parameters {
+            string(defaultValue: "Maintainer", description: 'Enter User Role')
+    }
+    stages {
+        stage('listVals')
             steps {
-                // ajout d'une liste de choix
-                def choice = input message: 'choisir dans la liste'
-                parameters: [choice(choices:"choix1\nchoix2\nchoix3\n",
-                description: 'choose an option', name: 'Options')]
-                sh 'echo build stage'
-            }
-        }    
-        stage('deploy'){
-            steps {
-                input message:'Approve PRODUCTION Deployment?', ok: 'Yes', submitter: 'admin'
-                sh 'echo deploy to tomcat server'
-            }
-            post {
-            success {
-                echo 'Code deployed to Production.'
-                echo "active user is now ${params.USERID}"
+                echo "user's role = ${params.userRole}"
+                post {
+                    success {
+                        echo " User identified"
+                    }
+                    failure {
+                        echo 'Build failed'
+                        mail body : "le job ${CURRENT_JOB_ID} is considered failed", subject: 'job failed!',
+                        to: 'imejri.issam@gmail.com'
+                    }
+                    
                 }
             }
-        
-            
-    }
-        
+
         }
+
+    }
 }
