@@ -6,12 +6,15 @@ pipeline {
     stages {
         stage('listVals') {
             steps {
-                echo "user role = ${params.userRole}"
+                echo "user role = ${params.useRole}"
                 
             }
             post{
                 success {
                     echo "stage listVals is OK"
+                }
+                failure {
+                   echo "Prob in this stage"
                 }
             }
                 
