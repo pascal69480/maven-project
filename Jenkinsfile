@@ -9,10 +9,13 @@ pipeline {
                 echo "user role = ${params.userRole}"
                 post {
                     success {
-                        echo " User identified"
+                        echo "User identified"
                     }
                     failure {
-                        echo 'Build failed'
+                        steps {
+                            echo 'Build failed'
+                        }
+                       
                 
                     }
                     
