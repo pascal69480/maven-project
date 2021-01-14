@@ -12,13 +12,7 @@ pipeline {
                     success {
                         echo "User identified"
                     }
-                    failure {
-                        steps {
-                            echo 'Build failed'
-                        }
-                       
-                
-                    }
+                    
                     
                 }
 
