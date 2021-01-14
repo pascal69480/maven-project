@@ -7,9 +7,9 @@ pipeline {
         stage('Build'){
             steps {
                 // ajout d'une liste de choix
-                def choice = input message: 'choisir dans la liste',
-                 parameters: [choice(choices:"choix1\nchoix2\nchoix3\n",
-                 description: 'choose an option', name: 'Options')]
+                def choice = input message: 'choisir dans la liste'
+                parameters: [choice(choices:"choix1\nchoix2\nchoix3\n",
+                description: 'choose an option', name: 'Options')]
                 sh 'echo build stage'
             }
         }    
