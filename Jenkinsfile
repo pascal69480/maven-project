@@ -9,6 +9,11 @@ pipeline {
                 echo "user role = ${params.userRole}"
                 
             }
+            post{
+                success {
+                    echo "stage listVals is OK"
+                }
+            }
                 
 
         }
